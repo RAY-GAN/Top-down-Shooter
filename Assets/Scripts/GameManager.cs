@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
 
     public Text Enemykilledscore;
 
+    public CameraShake CameraShake;
+
     public static GameManager Instance;
 
     void Awake()
@@ -50,6 +52,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         InvokeRepeating("SpawnEnemy", 3, Spawnrate);
+
+        CameraShake = Camera.main.GetComponent<CameraShake>();
 
     }
 
@@ -134,4 +138,9 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
     }
 
+
+    public void StartCameraShake()
+    {
+        StartCoroutine(CameraShake.Shake(0.15f, 0.4f));
+    }
 }

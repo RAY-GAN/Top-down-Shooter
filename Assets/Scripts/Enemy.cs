@@ -23,6 +23,7 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private float Damage;
 
+    
 
     private Rigidbody2D rb;
 
@@ -31,6 +32,7 @@ public class Enemy : MonoBehaviour
     {
         TryGetComponent<Rigidbody2D>(out rb);
         StartMoving();
+
         
     }
 
@@ -130,6 +132,7 @@ public class Enemy : MonoBehaviour
         {
             GameManager.Instance.DeleteEnemy(gameObject);
             GameManager.Instance.Enemykilled++;
+            GameManager.Instance.StartCameraShake();
             Destroy(gameObject);
            
 
